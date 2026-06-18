@@ -1,0 +1,5 @@
+neo4j>=5.14.0
+confluent-kafka>=2.3.0
+pydantic>=2.5.0
+grpcio>=1.59.0
+grpcio-tools>=1.59.0

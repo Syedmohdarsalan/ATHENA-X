@@ -1,0 +1,57 @@
+# Global settings for ATHENA deployment
+global:
+  environment: production
+  imageRegistry: 123456789012.dkr.ecr.us-east-1.amazonaws.com
+  imagePullPolicy: IfNotPresent
+
+# Ingestion Gateway settings (Rust-based)
+ingestionGateway:
+  replicaCount: 3
+  image:
+    repository: athena/ingestion-gateway
+    tag: v0.1.0
+  service:
+    type: ClusterIP
+    port: 4317
+  resources:
+    limits:
+      cpu: 2000m
+      memory: 2Gi
+    requests:
+      cpu: 500m
+      memory: 512Mi
+
+# Digital Twin Cache settings (Go/Hazelcast)
+digitalTwin:
+  replicaCount: 3
+  image:
+    repository: athena/digital-twin
+    tag: v0.1.0
+  service:
+    type: ClusterIP
+    port: 50051
+  resources:
+    limits:
+      cpu: 4000m
+      memory: 8Gi
+    requests:
+      cpu: 1000m
+      memory: 2Gi
+
+# Agent Reasoning Engine (Python/LangGraph)
+agentReasoning:
+  replicaCount: 2
+  image:
+    repository: athena/agent-reasoning
+    tag: v0.1.0
+  env:
+    OPENAI_API_BASE: "https://api.openai.com/v1"
+    QDRANT_HOST: "qdrant.athena.svc.cluster.local"
+    NEO4J_URI: "bolt://neo4j.athena.svc.cluster.local:7687"
+  resources:
+    limits:
+      cpu: 2000m
+      memory: 4Gi
+    requests:
+      cpu: 1000m
+      memory: 1Gi
