@@ -11,8 +11,12 @@ class GraphSyncDaemon:
         self.driver = None
         try:
             self.driver = GraphDatabase.driver(uri, auth=(user, password))
+            self.driver.verify_connectivity()
             logger.info("Successfully connected to Neo4j database Cluster.")
         except Exception as e:
+            if self.driver:
+                self.driver.close()
+            self.driver = None
             logger.error(f"Failed to connect to Neo4j: {e}. Running in emulation mode.")
 
     def close(self):
