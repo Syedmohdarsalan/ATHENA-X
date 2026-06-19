@@ -30,49 +30,49 @@ const forecastData = [
 
 export default function PredictiveIntelligencePage() {
   return (
-    <div className="flex-1 overflow-y-auto p-6 space-y-6">
+    <div className="flex-1 overflow-y-auto p-4 sm:p-6 space-y-6">
       
       {/* Page Header */}
-      <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-[#1b2535] pb-5">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-zinc-800 pb-5">
         <div className="flex items-center gap-3">
-          <div className="h-10 w-10 rounded-lg bg-[#3b82f6]/15 border border-[#3b82f6]/30 flex items-center justify-center text-[#60a5fa]">
+          <div className="h-10 w-10 rounded-lg bg-yellow-500/10 border border-yellow-500/20 flex items-center justify-center text-yellow-500">
             <TrendingUp size={22} />
           </div>
           <div>
             <h1 className="text-xl font-bold text-white tracking-wide">Predictive Intelligence</h1>
-            <p className="text-xs text-[#9b9da3] mt-1">Resource exhaustion forecasting, safety capacity modeling, and incident threat vector calculations.</p>
+            <p className="text-xs text-zinc-400 mt-1">Resource exhaustion forecasting, safety capacity modeling, and incident threat vector calculations.</p>
           </div>
         </div>
       </div>
 
       {/* Grid: 3 Forecast Summary Cards */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-        <div className="bg-[#0b0f19] border border-[#1b2535] p-5 rounded-lg flex items-center gap-4 shadow-sm">
-          <div className="p-3 bg-[#eab308]/15 text-[#eab308] rounded-md">
+        <div className="bg-zinc-950 border border-zinc-800 p-5 rounded-lg flex items-center gap-4 shadow-sm">
+          <div className="p-3 bg-yellow-500/10 text-yellow-500 rounded-md">
             <Calendar size={20} />
           </div>
           <div>
-            <span className="text-[10px] text-[#9b9da3] tracking-widest font-bold uppercase">DISK EXHAUSTION TARGET</span>
+            <span className="text-[10px] text-zinc-500 tracking-widest font-bold uppercase">DISK EXHAUSTION TARGET</span>
             <div className="text-base font-bold text-white mt-0.5">3.2 days (us-east-1 DB-pool)</div>
           </div>
         </div>
 
-        <div className="bg-[#0b0f19] border border-[#1b2535] p-5 rounded-lg flex items-center gap-4 shadow-sm">
-          <div className="p-3 bg-[#f43f5e]/15 text-[#f43f5e] rounded-md">
+        <div className="bg-zinc-950 border border-zinc-800 p-5 rounded-lg flex items-center gap-4 shadow-sm">
+          <div className="p-3 bg-rose-500/10 text-rose-400 rounded-md">
             <ShieldAlert size={20} />
           </div>
           <div>
-            <span className="text-[10px] text-[#9b9da3] tracking-widest font-bold uppercase">OUTAGE RISK FACTOR (24H)</span>
+            <span className="text-[10px] text-zinc-500 tracking-widest font-bold uppercase">OUTAGE RISK FACTOR (24H)</span>
             <div className="text-base font-bold text-white mt-0.5">88% (checkout routing pathway)</div>
           </div>
         </div>
 
-        <div className="bg-[#0b0f19] border border-[#1b2535] p-5 rounded-lg flex items-center gap-4 shadow-sm">
-          <div className="p-3 bg-[#10b981]/15 text-[#10b981] rounded-md">
+        <div className="bg-zinc-950 border border-zinc-800 p-5 rounded-lg flex items-center gap-4 shadow-sm">
+          <div className="p-3 bg-emerald-500/10 text-emerald-400 rounded-md">
             <Activity size={20} />
           </div>
           <div>
-            <span className="text-[10px] text-[#9b9da3] tracking-widest font-bold uppercase">AUTONOMOUS RESERVES</span>
+            <span className="text-[10px] text-zinc-500 tracking-widest font-bold uppercase">AUTONOMOUS RESERVES</span>
             <div className="text-base font-bold text-white mt-0.5">18% reserve compute pooled</div>
           </div>
         </div>
@@ -82,10 +82,10 @@ export default function PredictiveIntelligencePage() {
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         
         {/* Resource Depletion Projection Chart */}
-        <div className="lg:col-span-2 bg-[#0b0f19] border border-[#1b2535] rounded-lg p-5 flex flex-col justify-between shadow-md">
-          <div className="border-b border-[#1b2535] pb-4 mb-4">
+        <div className="lg:col-span-2 bg-zinc-950 border border-zinc-800 rounded-lg p-5 flex flex-col justify-between shadow-md">
+          <div className="border-b border-zinc-800 pb-4 mb-4">
             <h3 className="font-bold text-sm text-white">Capacity Depletion Curves</h3>
-            <p className="text-[11px] text-[#9b9da3] mt-0.5">7-day tracking and automated neural projections for hardware bottlenecks.</p>
+            <p className="text-[11px] text-zinc-400 mt-0.5">7-day tracking and automated neural projections for hardware bottlenecks.</p>
           </div>
 
           <div className="h-64 w-full">
@@ -93,15 +93,15 @@ export default function PredictiveIntelligencePage() {
               <AreaChart data={forecastData} margin={{ top: 10, right: 10, left: -20, bottom: 0 }}>
                 <defs>
                   <linearGradient id="colorYellow" x1="0" y1="0" x2="0" y2="1">
-                    <stop offset="5%" stopColor="#eab308" stopOpacity={0.2}/>
+                    <stop offset="5%" stopColor="#eab308" stopOpacity={0.25}/>
                     <stop offset="95%" stopColor="#eab308" stopOpacity={0}/>
                   </linearGradient>
                 </defs>
-                <CartesianGrid strokeDasharray="3 3" stroke="#1b2535" />
-                <XAxis dataKey="day" stroke="#9b9da3" fontSize={10} />
-                <YAxis stroke="#9b9da3" fontSize={10} />
+                <CartesianGrid strokeDasharray="3 3" stroke="#27272a" />
+                <XAxis dataKey="day" stroke="#71717a" fontSize={10} />
+                <YAxis stroke="#71717a" fontSize={10} />
                 <Tooltip 
-                  contentStyle={{ backgroundColor: '#070b15', border: '1px solid #1b2535', borderRadius: '4px' }}
+                  contentStyle={{ backgroundColor: '#09090b', border: '1px solid #27272a', borderRadius: '4px' }}
                   labelStyle={{ color: '#fff', fontSize: '10px' }}
                   itemStyle={{ fontSize: '11px' }}
                 />
@@ -112,17 +112,17 @@ export default function PredictiveIntelligencePage() {
         </div>
 
         {/* Predictive Threats List */}
-        <div className="bg-[#0b0f19] border border-[#1b2535] rounded-lg p-5 flex flex-col justify-between shadow-md">
-          <div className="border-b border-[#1b2535] pb-4 mb-4">
+        <div className="bg-zinc-950 border border-zinc-800 rounded-lg p-5 flex flex-col justify-between shadow-md">
+          <div className="border-b border-zinc-800 pb-4 mb-4">
             <h3 className="font-bold text-sm text-white">Threat Scenarios</h3>
-            <p className="text-[11px] text-[#9b9da3] mt-0.5">Projections of high-risk failure events with confidence models.</p>
+            <p className="text-[11px] text-zinc-400 mt-0.5">Projections of high-risk failure events with confidence models.</p>
           </div>
 
           <div className="flex-1 space-y-3 overflow-y-auto pr-1">
             {[
-              { title: 'Postgres Volume Overflow', risk: '88% Outage Likelihood', target: 'vol-08f921ab', color: 'border-[#f43f5e]/30 bg-[#f43f5e]/5 text-[#fda4af]' },
-              { title: 'EC2 Cluster Quota Saturation', risk: '42% Outage Likelihood', target: 'aws-us-east-1', color: 'border-[#eab308]/30 bg-[#eab308]/5 text-[#fef08a]' },
-              { title: 'API Ingress Route Rate-Exceeded', risk: '12% Outage Likelihood', target: 'payment-service', color: 'border-[#3b82f6]/30 bg-[#3b82f6]/5 text-[#bfdbfe]' },
+              { title: 'Postgres Volume Overflow', risk: '88% Outage Likelihood', target: 'vol-08f921ab', color: 'border-rose-500/20 bg-rose-500/5 text-rose-300' },
+              { title: 'EC2 Cluster Quota Saturation', risk: '42% Outage Likelihood', target: 'aws-us-east-1', color: 'border-yellow-500/20 bg-yellow-500/5 text-yellow-300' },
+              { title: 'API Ingress Route Rate-Exceeded', risk: '12% Outage Likelihood', target: 'payment-service', color: 'border-amber-500/20 bg-amber-500/5 text-amber-300' },
             ].map((threat, idx) => (
               <div key={idx} className={`border p-4 rounded-md space-y-2 ${threat.color}`}>
                 <div className="flex justify-between items-start text-xs font-bold">

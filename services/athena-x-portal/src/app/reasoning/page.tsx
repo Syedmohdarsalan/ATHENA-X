@@ -29,38 +29,38 @@ const agentNodes: Node[] = [
     id: 'super', 
     data: { label: 'Supervisor Agent' }, 
     position: { x: 250, y: 0 },
-    style: { background: '#0891b2', border: '1px solid #22d3ee', color: '#fff', borderRadius: '6px', fontSize: '11px', fontWeight: 'bold' } 
+    style: { background: '#d97706', border: '1px solid #fbbf24', color: '#fff', borderRadius: '6px', fontSize: '11px', fontWeight: 'bold' } 
   },
   { 
     id: 'explore', 
     data: { label: 'Explorer Agent' }, 
     position: { x: 100, y: 100 },
-    style: { background: '#1e293b', border: '1px solid #475569', color: '#fff', borderRadius: '6px', fontSize: '11px' } 
+    style: { background: '#18181b', border: '1px solid #3f3f46', color: '#fff', borderRadius: '6px', fontSize: '11px' } 
   },
   { 
     id: 'plan', 
     data: { label: 'Planner Agent' }, 
     position: { x: 400, y: 100 },
-    style: { background: '#1e293b', border: '1px solid #475569', color: '#fff', borderRadius: '6px', fontSize: '11px' } 
+    style: { background: '#18181b', border: '1px solid #3f3f46', color: '#fff', borderRadius: '6px', fontSize: '11px' } 
   },
   { 
     id: 'execute', 
     data: { label: 'Executor Agent' }, 
     position: { x: 100, y: 200 },
-    style: { background: '#1e293b', border: '1px solid #475569', color: '#fff', borderRadius: '6px', fontSize: '11px' } 
+    style: { background: '#18181b', border: '1px solid #3f3f46', color: '#fff', borderRadius: '6px', fontSize: '11px' } 
   },
   { 
     id: 'verify', 
     data: { label: 'Verifier Agent' }, 
     position: { x: 400, y: 200 },
-    style: { background: '#1e293b', border: '1px solid #10b981', color: '#a7f3d0', borderRadius: '6px', fontSize: '11px', fontWeight: 'bold' } 
+    style: { background: '#18181b', border: '1px solid #10b981', color: '#a7f3d0', borderRadius: '6px', fontSize: '11px', fontWeight: 'bold' } 
   }
 ];
 
 const agentEdges: Edge[] = [
-  { id: 'es-exp', source: 'super', target: 'explore', animated: true, style: { stroke: '#06b6d4' } },
-  { id: 'ee-plan', source: 'explore', target: 'plan', animated: true, style: { stroke: '#94a3b8' } },
-  { id: 'ep-exe', source: 'plan', target: 'execute', animated: true, style: { stroke: '#94a3b8' } },
+  { id: 'es-exp', source: 'super', target: 'explore', animated: true, style: { stroke: '#eab308' } },
+  { id: 'ee-plan', source: 'explore', target: 'plan', animated: true, style: { stroke: '#71717a' } },
+  { id: 'ep-exe', source: 'plan', target: 'execute', animated: true, style: { stroke: '#71717a' } },
   { id: 'ex-ver', source: 'execute', target: 'verify', animated: true, style: { stroke: '#10b981' } }
 ];
 
@@ -89,33 +89,33 @@ export default function AgentIntelligencePage() {
     <div className="flex-1 flex flex-col overflow-hidden font-sans">
       
       {/* Topology Navigation bar */}
-      <div className="h-14 border-b border-[#1b2535] bg-[#0b0f19] flex items-center justify-between px-6 select-none shrink-0 font-mono text-xs">
+      <div className="h-auto md:h-14 border-b border-zinc-800 bg-zinc-950 flex flex-col md:flex-row md:items-center justify-between px-6 py-4 md:py-0 select-none shrink-0 font-mono text-xs gap-4">
         <div className="flex items-center gap-6">
           <div className="flex items-center gap-2 text-white">
-            <Cpu size={14} className="text-[#06b6d4]" />
+            <Cpu size={14} className="text-yellow-500" />
             <span className="font-bold">Agent Orchestration Chamber</span>
           </div>
-          <span className="text-[#4b5563]">|</span>
+          <span className="text-zinc-700 hidden md:inline">|</span>
           <div>
-            <span className="text-[#9b9da3]">Session ID:</span>
-            <span className="text-[#06b6d4] font-bold ml-1">session-8821</span>
+            <span className="text-zinc-400">Session ID:</span>
+            <span className="text-yellow-500 font-bold ml-1">session-8821</span>
           </div>
         </div>
         
-        <div className="flex items-center gap-4">
-          <span className="text-[#9b9da3]">AGENT CONFIDENCE METRIC:</span>
-          <span className="text-[#10b981] font-bold">98.4% [CRITICAL DECISION MATCH]</span>
+        <div className="flex items-center gap-4 flex-wrap">
+          <span className="text-zinc-400">AGENT CONFIDENCE METRIC:</span>
+          <span className="text-emerald-400 font-bold">98.4% [CRITICAL DECISION MATCH]</span>
         </div>
       </div>
 
-      <div className="flex-1 flex overflow-hidden">
+      <div className="flex-1 flex flex-col md:flex-row overflow-hidden">
         
         {/* React Flow Chamber */}
-        <div className="flex-1 h-full bg-[#030712] relative border-r border-[#1b2535]">
-          <div className="absolute top-4 left-4 z-10 bg-[#070b15]/90 border border-[#1b2535] p-3 rounded-md max-w-xs text-xs shadow-lg">
+        <div className="flex-1 h-[350px] md:h-full bg-[#050507] relative border-b md:border-b-0 md:border-r border-zinc-800 min-h-[300px]">
+          <div className="absolute top-4 left-4 z-10 bg-zinc-950/90 border border-zinc-800 p-3 rounded-md max-w-xs text-xs shadow-lg">
             <h4 className="font-bold text-white mb-1">State Machine Flow</h4>
-            <p className="text-[#9b9da3] text-[11px] leading-relaxed">
-              LangGraph workflow rendering. Active green paths represent resolved pathways in the current incident transaction execution.
+            <p className="text-zinc-400 text-[11px] leading-relaxed">
+              LangGraph workflow rendering. Active green/yellow paths represent resolved pathways in the current incident transaction execution.
             </p>
           </div>
 
@@ -124,18 +124,18 @@ export default function AgentIntelligencePage() {
             edges={agentEdges}
             fitView
           >
-            <Background color="#1e293b" gap={20} size={1} />
+            <Background color="#27272a" gap={20} size={1} />
           </ReactFlow>
         </div>
 
         {/* Dynamic thoughts logs list */}
-        <div className="w-96 bg-[#070b15] p-5 flex flex-col justify-between shrink-0 overflow-y-auto">
+        <div className="w-full md:w-96 bg-zinc-950 p-5 flex flex-col justify-between shrink-0 overflow-y-auto">
           
           <div className="space-y-6">
-            <div className="border-b border-[#1b2535] pb-4">
-              <span className="text-[10px] text-[#9b9da3] tracking-widest font-bold uppercase block mb-1">Active Swarm Profiles</span>
+            <div className="border-b border-zinc-800 pb-4">
+              <span className="text-[10px] text-zinc-500 tracking-widest font-bold uppercase block mb-1">Active Swarm Profiles</span>
               <h3 className="font-bold text-sm text-white flex items-center gap-2">
-                <Target size={15} className="text-[#06b6d4]" />
+                <Target size={15} className="text-yellow-500" />
                 Agent Roles & System Status
               </h3>
             </div>
@@ -143,46 +143,46 @@ export default function AgentIntelligencePage() {
             {/* List of Swarm Agents */}
             <div className="space-y-3">
               {agentsList.map((agent, index) => (
-                <div key={index} className="bg-[#111827] border border-[#1b2535] p-3.5 rounded-md space-y-1">
+                <div key={index} className="bg-zinc-900 border border-zinc-800 p-3.5 rounded-md space-y-1">
                   <div className="flex justify-between items-center text-xs">
                     <span className="font-bold text-white">{agent.name}</span>
                     <span className={`text-[10px] font-mono px-2 py-0.5 rounded ${
                       agent.status === 'MONITORING' 
-                        ? 'bg-[#10b981]/15 text-[#4ade80] border border-[#10b981]/30' 
-                        : 'bg-gray-800 text-gray-400'
+                        ? 'bg-emerald-500/10 text-emerald-400 border border-emerald-500/20' 
+                        : 'bg-zinc-800 text-zinc-400'
                     }`}>
                       {agent.status}
                     </span>
                   </div>
-                  <p className="text-[11px] text-[#9b9da3] leading-relaxed">{agent.desc}</p>
+                  <p className="text-[11px] text-zinc-400 leading-relaxed">{agent.desc}</p>
                 </div>
               ))}
             </div>
 
             {/* Confidence Trend chart */}
-            <div className="space-y-2 border-t border-[#1b2535] pt-4">
-              <span className="text-[9px] text-[#9b9da3] tracking-wider font-bold block uppercase">Swarm Diagnostics Confidence Timeline</span>
+            <div className="space-y-2 border-t border-zinc-800 pt-4">
+              <span className="text-[9px] text-zinc-500 tracking-wider font-bold block uppercase">Swarm Diagnostics Confidence Timeline</span>
               <div className="h-24 w-full">
                 <ResponsiveContainer width="100%" height="100%">
                   <AreaChart data={confidenceData} margin={{ top: 5, right: 0, left: -20, bottom: 0 }}>
-                    <XAxis dataKey="step" stroke="#6b7280" fontSize={8} />
-                    <YAxis stroke="#6b7280" fontSize={8} />
-                    <Area type="monotone" dataKey="val" stroke="#06b6d4" fill="#06b6d4" fillOpacity={0.15} />
+                    <XAxis dataKey="step" stroke="#71717a" fontSize={8} />
+                    <YAxis stroke="#71717a" fontSize={8} />
+                    <Area type="monotone" dataKey="val" stroke="#eab308" fill="#eab308" fillOpacity={0.15} />
                   </AreaChart>
                 </ResponsiveContainer>
               </div>
             </div>
           </div>
           
-          <div className="border-t border-[#1b2535] pt-4 mt-6">
-            <div className="bg-[#111827] border border-[#1e293b] p-3 rounded-md text-xs font-mono text-[#9b9da3] space-y-1">
+          <div className="border-t border-zinc-800 pt-4 mt-6">
+            <div className="bg-zinc-900 border border-zinc-800 p-3 rounded-md text-xs font-mono text-zinc-400 space-y-1">
               <div className="text-white font-bold flex items-center gap-1.5 mb-1.5">
-                <Clock size={12} className="text-[#06b6d4]" />
+                <Clock size={12} className="text-yellow-500" />
                 Session Audit Trails
               </div>
               <div className="text-[10px]">&gt; Explorer matched Neo4j dependencies</div>
               <div className="text-[10px]">&gt; Planner queried Qdrant for JIRA-9821</div>
-              <div className="text-[10px] text-[#4ade80]">&gt; OPA verified execution command [OK]</div>
+              <div className="text-[10px] text-emerald-400">&gt; OPA verified execution command [OK]</div>
             </div>
           </div>
 
